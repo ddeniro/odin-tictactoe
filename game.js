@@ -185,13 +185,15 @@ const gameBoard = (() => {
 
     const addWinner = (status) => {
         console.log(winText.textContent, status);
-        if (status === 'computer') {
+        if (status === 'O') {
             winText.textContent = 'Computer wins!';
         }
-        else if (status === 'player') {
+        else if (status === 'X') {
             winText.textContent = 'You win!';
         }
-
+        else {
+            winText.textContent = "It's a tie!";
+        }
         winText.classList.remove('hidden');
         _squares.forEach(row => {
             row.forEach(square => {
@@ -233,13 +235,13 @@ const game = (() => {
                     _playerTurn = false;
                     gameBoard.addToBoard(indexI,indexJ,'X');
                     if (gameBoard.checkWinner()) {
-                        setTimeout(gameBoard.addWinner.bind(null, 'player'), 1250);
+                        setTimeout(gameBoard.addWinner.bind(null, gameBoard.checkWinner()), 1250);
                         _inGame = false;
                         return;
                     };
                     gameBoard.aiMove();
                     if (gameBoard.checkWinner()) {
-                        setTimeout(gameBoard.addWinner.bind(null, 'computer'), 1250);
+                        setTimeout(gameBoard.addWinner.bind(null, gameBoard.checkWinner()), 1250);
                         _inGame = false;
                     }
                     _playerTurn = true;
