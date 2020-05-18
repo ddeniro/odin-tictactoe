@@ -1,0 +1,130 @@
+:root {
+    --playerOne-color: #EB5160;
+    --playerTwo-color: #7DD0CB;
+    --winbg-color: #F5E0B7;
+    --board-grid-color: #717C89;
+    /* 303633 greyish E0E0E2 platinum */
+}
+
+body {
+    background-color: #090C08;
+    color: white;
+    font-family: 'Muli', sans-serif;
+
+    ;
+}
+
+#game-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+#container-header h1 {
+    margin-bottom: 0;
+}
+
+#instructions ul {
+    margin-top: 0;
+}
+
+#container-buttons-board {
+    display: flex;
+    align-items: center;
+    
+}
+#container-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    
+}
+
+
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    font-weight: 200;
+    border: 3px solid var(--board-grid-color);
+
+    width: 90vw;
+    height: 90vw;
+
+    margin-left: 90px;
+    max-height: 500px;
+    max-width: 500px;
+    
+}
+
+.winner {
+    justify-self: center;
+
+    font-size: 4rem;
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+}
+
+
+.square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 5rem;
+    padding: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.top, .center {
+    border-bottom: 3px solid var(--board-grid-color);
+}
+
+.left {
+    border-right: 3px solid var(--board-grid-color);
+}
+
+.right {
+    border-left: 3px solid var(--board-grid-color);
+
+}
+
+.square:hover {
+    background-color: #E0E0E20F;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.X {
+    color: var(--playerOne-color);
+}
+
+.O {
+    color: var(--playerTwo-color);
+}
+
+.match {
+    background-color: var(--winbg-color);
+}
+.match:hover {
+    background-color: var(--winbg-color);
+}
+.feather {
+    width: 50px;
+}
+.feather-play {
+    stroke: var(--board-grid-color);
+    fill: none;
+
+    margin-right: 40px;
+}
